@@ -6,7 +6,7 @@ class Caixa {
         this.tratarMetodoDePagamento(metodoDePagamento);
         this.calculaValorDeAbate();
         this.trataItens(itens);
-        console.log(this.pagamento, this.valorDeAbate);
+        console.log(`Seu pedido com: ${itens} saiu por R$${this.valorDoPedido}`);
     }
     trataItens(itens) {
         if (!itens) {
@@ -24,12 +24,8 @@ class Caixa {
                 else if (cardapio.hasOwnProperty(itemName)) {
                     const itemBuscado = itemName.trim();
                     const itemPreco = cardapio[itemBuscado];
-                    console.log('Item:', item);
-                    console.log('Quantidade:', quantityNumber);
                     const precoACobrar = itemPreco * quantityNumber;
-                    this.valorDoPedido = (this.valorDoPedido + precoACobrar) * this.valorDeAbate;
-                    console.log('valor do pedido:', this.valorDoPedido);
-                    console.log('valor de abate:', this.valorDeAbate);
+                    this.valorDoPedido = Number(((this.valorDoPedido + precoACobrar) * this.valorDeAbate).toFixed(2));
                 }
             }
         }
@@ -51,16 +47,13 @@ class Caixa {
     calculaValorDeAbate() {
         if (this.pagamento === 0) {
             this.valorDeAbate = 0.95;
-            console.log(this.valorDeAbate);
         }
         else if (this.pagamento === 2) {
             this.valorDeAbate = 1;
-            console.log(this.valorDeAbate);
         }
         else if (this.pagamento === 1) {
             this.valorDeAbate = 1.03;
-            console.log(this.valorDeAbate);
         }
     }
 }
-const pedido1 = new Caixa('credito', ['chantily, 2', 'cafe,1']);
+const pedido1 = new Caixa('debito', ['combo1, 2']);

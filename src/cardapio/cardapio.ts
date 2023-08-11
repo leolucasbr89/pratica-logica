@@ -5,4 +5,6 @@ export const cardapio = {
     sanduiche: 6.50,
     queijo: 2.00,
     salgado: 7.25,
+    combo1: 9.50,
+    combo2: 7.50
 }
