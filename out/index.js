@@ -16,14 +16,13 @@ class Caixa {
             throw new Error("itens vazios");
         }
         else if (itens) {
-            const items = itens;
-            for (const item of items) {
+            for (const item of itens) {
                 const [itemName, quantity] = item.split(',');
                 let quantityNumber = Number(quantity);
                 if (!quantityNumber) {
                     throw new Error('Ofereça uma quantidade válida');
                 }
-                for (let letra of items) {
+                for (let letra of itens) {
                     if (letra.includes('cafe')) {
                         HaCafe = true;
                     }
@@ -72,4 +71,4 @@ class Caixa {
         }
     }
 }
-const pedido1 = new Caixa('debito', ['cafe, 2']);
+const pedido1 = new Caixa('debito', ['cafe, 2', 'chantily, 2']);
