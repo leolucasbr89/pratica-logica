@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "outDir": "out/",
+      "target": "ES6",
+      "noEmitOnError": true,
+      "noImplicitAny": true,
+      "strictNullChecks": false,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "removeComments": true
+    }
+  }
+  
